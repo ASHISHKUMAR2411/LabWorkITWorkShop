@@ -5,22 +5,22 @@
 Que 1. Calculate simple interest
 Ans : 
 
-## this function is to find the simple Interest which is p*r*t  
+### this function is to find the simple Interest which is p*r*t  
 def simpleInterest(p,r,t):
     return p*r*t/100;
 
-## driver code takes input and call the function for simpleInterest     
+### driver code takes input and call the function for simpleInterest     
 p = int(input('Enter principal : '))
 r = float(input('Enter rate: '))
 t = int(input('Enter time : '))
 
-## now finding and print the simple Interest where p,r,t are arguments  
+### now finding and print the simple Interest where p,r,t are arguments  
 print(f'the simple interest is {simpleInterest(p,r,t)} : ' )
 
-## test cases : 
-## 1 . principal = 1000 , rate = 2.5% , t = 5 yrs , simpleInterest = 125
-## 2 .principal = 1250 , rate = 3.3% , t = 8 yrs , simpleInterest = 330
-## it can find simple interest for large number also  1e208 and more   
+### test cases : 
+### 1 . principal = 1000 , rate = 2.5% , t = 5 yrs , simpleInterest = 125
+### 2 .principal = 1250 , rate = 3.3% , t = 8 yrs , simpleInterest = 330
+### it can find simple interest for large number also  1e208 and more   
 
 
 
