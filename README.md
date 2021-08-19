@@ -3,106 +3,105 @@
 ##Python Worksheet 1
 
 **Que 1. Calculate simple interest**
-Ans : 
 ```
-#### this function is to find the simple Interest which is p*r*t  
+# this function is to find the simple Interest which is p*r*t  
 def simpleInterest(p,r,t):
     return p*r*t/100;
 
-#### driver code takes input and call the function for simpleInterest     
+# driver code takes input and call the function for simpleInterest     
 p = int(input('Enter principal : '))
 r = float(input('Enter rate: '))
 t = int(input('Enter time : '))
 
-#### now finding and print the simple Interest where p,r,t are arguments  
+# now finding and print the simple Interest where p,r,t are arguments  
 print(f'the simple interest is {simpleInterest(p,r,t)} : ' )
-
-#### test cases : 
-#### 1 . principal = 1000 , rate = 2.5% , t = 5 yrs , simpleInterest = 125
-#### 2 .principal = 1250 , rate = 3.3% , t = 8 yrs , simpleInterest = 330
-#### it can find simple interest for large number also  1e208 and more   
+```
+test cases : 
+```
+ 1 . principal = 1000 , rate = 2.5% , t = 5 yrs , simpleInterest = 125
+ 2 .principal = 1250 , rate = 3.3% , t = 8 yrs , simpleInterest = 330
+** it can find simple interest for large number also  1e208 and more**
+```
 
 
 
 Ques 2. Ramesh’s basic salary is input through the keyboard. His dearness allowance is 40% of basic salary, and house rent allowance is 20% of basic salary. Write a program to calculate his gross salary.
-Ans : 
-
-#### here we have have to find the gross salary after his DA and house rent allowance 
-####basic salary 
+```
+# here we have have to find the gross salary after his DA and house rent allowance 
+#basic salary 
 s = float(input("enter the salary : "))
-#### DA
+# DA
 g = 0.4*s
-####Rent  Allowance 
+#Rent  Allowance 
 a = 0.2*s
-####printing the gross salary : 
+#printing the gross salary : 
 print(f'the gross salary is: {str(s+g+a)}')
 ```
-
-####test cases 
+test cases
+```
  1 .basic salary - 2000 , Gross Salary - 3200 
  2 .basic salary - 10000 , Gross Salary - 16000
  3 .basic salary - 200000 , Gross Salary - 320000 
-
-
+```
 
 **3. The distance between two cities (in km.) is input through the keyboard. Write a program to convert and print this distance in meters, feet, inches and centimeters.**
-
-Ans : 
 ```
-#### to find the distance in meter , feet , inch , centimeter
-####  1 kilometer = 1000 meters
-#### 1 meter = 100 centimeters
-#### 1 meter = 3.28 feet
-#### 1 feet = 12 inches
-#### the above data i used to calculate the distance
+# to find the distance in meter , feet , inch , centimeter
+#  1 kilometer = 1000 meters
+# 1 meter = 100 centimeters
+# 1 meter = 3.28 feet
+# 1 feet = 12 inches
+# the above data i used to calculate the distance
 
-#### driver code
+# driver code
 k = float(input("enter the distance : "))
-#### in meter
+# in meter
 m = k*1000
-#### in feet
+# in feet
 f = m*3.28084
-#### in centimeter
+# in centimeter
 c = m*100
-#### in inches
+# in inches
 i = f*12
 
-#### output :
+# output :
 print(f' the distance in meter is :  {m}')
 print(" the distance in feet is : " + str(f))
 print(" the distance in inch is : " + str(i))
 print(" the distance in centimeter is : " + str(c))
 ```
-#### test cases
+ test cases
+ ```
  1 . 400 km  400000 m , 1312336 feet , 15748032 inch , 40000000 cm 
  2 . 1 km 1000m , 3280.84 feet , 39370.08 inches , 100000 cm 
-
+```
 
 
 4. If the marks obtained by a student in five different subjects are input through the keyboard, find out the aggregate marks and percentage marks obtained by the student. Assume that the maximum marks that can be obtained by a student in each subject is 100.
+```
 
-Ans : 
+#  here we have to find the Aggregate marks (total marks obtained) and percentage 
 
-####  here we have to find the Aggregate marks (total marks obtained) and percentage 
+# here user should input marks <= 100 otherwise wrong output format  
 
-#### here user should input marks <= 100 otherwise wrong output format  
-
-#### driver code  for inputs 
+# driver code  for inputs 
 m1 = float(input("enter the marks for 1st Sub : "))
 m2 = float(input("enter the marks for 2nd Sub : "))
 m3 = float(input("enter the marks for 3rd Sub : "))
 m4 = float(input("enter the marks for 4rt Sub : "))
 m5 = float(input("enter the marks for 5th Sub : "))
 
-#### finding total marks (aggregate)
+# finding total marks (aggregate)
 ag = m1+m2+m3+m4+m5
 print("Aggregate marks is : " + str(ag))
-#### finding percentage 
+# finding percentage 
 print("percentage marks is : " + str(ag*100/500))
-
-#### test cases : 
-#### 1 . sub1 = 77 , sub2 = 75 , sub3 = 84 , sub4 = 90 , sub5 = 97 , Aggregate = 423 , percentage = 84.6% 
-#### 2 .  sub1 = 94 , sub2 = 50 , sub3 = 79 , sub4 = 86 , sub5 = 78 , Aggregate = 387 , percentage = 77.4% 
+```
+test cases :
+```
+# 1 . sub1 = 77 , sub2 = 75 , sub3 = 84 , sub4 = 90 , sub5 = 97 , Aggregate = 423 , percentage = 84.6% 
+# 2 .  sub1 = 94 , sub2 = 50 , sub3 = 79 , sub4 = 86 , sub5 = 78 , Aggregate = 387 , percentage = 77.4% 
+```
 
 
 
