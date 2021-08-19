@@ -1,6 +1,6 @@
 # LabWorkITWorkShop
 
-#Python Worksheet 1
+##Python Worksheet 1
 
 Que 1. Calculate simple interest
 Ans : 
