@@ -1,10 +1,10 @@
-## LabWorkITWorkShop
+# LabWorkITWorkShop
 
-###Python Worksheet 1
+##Python Worksheet 1
 
-Que 1. Calculate simple interest
+**Que 1. Calculate simple interest**
 Ans : 
-
+```
 #### this function is to find the simple Interest which is p*r*t  
 def simpleInterest(p,r,t):
     return p*r*t/100;
@@ -36,18 +36,19 @@ g = 0.4*s
 a = 0.2*s
 ####printing the gross salary : 
 print(f'the gross salary is: {str(s+g+a)}')
+```
 
 ####test cases 
-#### 1 .basic salary - 2000 , Gross Salary - 3200 
-#### 2 .basic salary - 10000 , Gross Salary - 16000
-#### 3 .basic salary - 200000 , Gross Salary - 320000 
+ 1 .basic salary - 2000 , Gross Salary - 3200 
+ 2 .basic salary - 10000 , Gross Salary - 16000
+ 3 .basic salary - 200000 , Gross Salary - 320000 
 
 
 
-3. The distance between two cities (in km.) is input through the keyboard. Write a program to convert and print this distance in meters, feet, inches and centimeters.
+**3. The distance between two cities (in km.) is input through the keyboard. Write a program to convert and print this distance in meters, feet, inches and centimeters.**
 
 Ans : 
-
+```
 #### to find the distance in meter , feet , inch , centimeter
 ####  1 kilometer = 1000 meters
 #### 1 meter = 100 centimeters
@@ -71,10 +72,10 @@ print(f' the distance in meter is :  {m}')
 print(" the distance in feet is : " + str(f))
 print(" the distance in inch is : " + str(i))
 print(" the distance in centimeter is : " + str(c))
-
+```
 #### test cases
-#### 1 . 400 km  400000 m , 1312336 feet , 15748032 inch , 40000000 cm 
-#### 2 . 1 km 1000m , 3280.84 feet , 39370.08 inches , 100000 cm 
+ 1 . 400 km  400000 m , 1312336 feet , 15748032 inch , 40000000 cm 
+ 2 . 1 km 1000m , 3280.84 feet , 39370.08 inches , 100000 cm 
 
 
 
