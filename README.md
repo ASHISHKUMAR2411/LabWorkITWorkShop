@@ -117,10 +117,10 @@ c = (t-32)*5/9
 print("the temperature in Centigrade is " + str(c) + "°C")
 ```
  test cases : 
- ``
+```
 # 1 . fahrenheit is - 99.0 ,  Centigrade is -  37.22°C
 # 2. fahrenheit is - 104.5 , Centigrade is - 40.277 °C
-``
+```
 
 
 6. The length & breadth of a rectangle and radius of a circle are input through the keyboard. Write a program to calculate the area & perimeter of the rectangle, and the area & circumference of the circle. 
@@ -143,10 +143,10 @@ print("the area of the circle is : "+ str(22/7*(r**2)))
 ```
 
  test cases :
- ``
+```
 # 1. length : 24 unit , breadth : 10.5 unit , radius :  7 unit, perimeter rectangle : 69 unit , area rectangle : 252 unit square   , circumference circle : 44 unit , area circle : 154 unit square,
 # 2 . length : 10 unit , breadth : 10 unit , radius : 10 unit , perimeter rectangle : 40 unit , area rectangle : 100 unit square , circumference circle : 62.85 , area circle : 314.285 unit square ,
-``
+```
 
 
 7. Two numbers are input through the keyboard into two locations C and D. Write a program to interchange the contents of C and D.
@@ -165,11 +165,11 @@ print(f' x is {x} and y is {y}')
 ```
 
  test cases :
- ``
+```
 #  1 . x = 5 , y = 6  after swap x = 6 , y = 5 
 #  2 . x = 15.6 , y = 6  after swap x = 6 , y = 15.6
 #  3 . x = Ashish , y = 6  after swap x = 6 , y = Ashish 
-``
+```
 
 
 8. If a five-digit number is input through the keyboard, write a program to calculate the sum of its digits. (Hint: Use the modulus operator ‘%’)
@@ -189,11 +189,11 @@ while n > 0:
 print("the sum is : "+ str(sum))
 ```
  Test cases :
- ``
+```
 #  1. the number is : 2345 , sum = 14 
 #  2. the number is : 12345 , sum = 15
 #  3. the number is : 121.4 , output : invalid input 
- ``
+```
 
 
 9.If a five-digit number is input through the keyboard, write a program to reverse the number. 
@@ -211,11 +211,11 @@ while n > 0:
 print("the reverse numbers is : "+ str(reverse))
 ```
  test cases
- ``
+```
 # 1 . number = 12345  , reverse = 54321
 # 2 . number = 111 , reverse = 111
 # 3 . number = Ashish  , output = error invalid input  
-``
+```
 
 
 10.If a four-digit number is input through the keyboard, write a program to obtain the sum of the first and last digit of this number. 
@@ -1096,106 +1096,105 @@ some test cases
 
 15. Write a program to produce the following pattern where number of line entered by keyboard:
 
- *
- **
- ***
- ****
- ___________________
-    *
-   * *
-  * * *
- * * * *
- ____________________ 
- ****
- ***
- **
- *
- ____________________
-****
-***
-**
-*
- _____________________
-
+#### *
+#### **
+#### ***
+#### ****
+#### ___________________
+####    *
+####   * *
+####  * * *
+#### * * * *
+#### ____________________ 
+#### ****
+#### ***
+#### **
+#### *
+#### ____________________
+####****
+####***
+####**
+####*
+#### _____________________
 
 i.e. if input is 7
- *
- **
- ***
- ****
- ***
- **
- *
+#### *
+#### **
+#### ***
+#### ****
+#### ***
+#### **
+#### *
 & if input is 8
- *
- **
- ***
- ****
- ****
- ***
- **
- *
+#### *
+#### **
+#### ***
+#### ****
+#### ****
+#### ***
+#### **
+#### *
 i.e. if input is 7
-        *
-     **
-   ***
- ****
-   ***
-     **
-       *
+####        *
+####     **
+####   ***
+#### ****
+####   ***
+####     **
+####       *
 & if input is 8
-       *
-     **
-   ***
- ****
- ****
-   ***
-     **
-       *
+####       *
+####     **
+####   ***
+#### ****
+#### ****
+####   ***
+####     **
+####       *
 i.e. if input is 7
  
-       *
-     ***
-   *****
- *******
-   *****
-     ***
-       *
+####       *
+####     ***
+####   *****
+#### *******
+####   *****
+####     ***
+####       *
 & if input is 8 
-       *
-     ***
-   *****
- *******
- *******
-   *****
-     ***
-       *
+####       *
+####     ***
+####   *****
+#### *******
+#### *******
+####   *****
+####     ***
+####       *
 
- 12345
- 6789
- 012
- 34
- 5
+#### 12345
+#### 6789
+#### 012
+#### 34
+#### 5
 
  i.e. if input is 5
-     1
-   234
- 56789
-   012
-     3
+####     1
+####   234
+#### 56789
+####   012
+####     3
 
  & if input is 6
-   1
-  234
- 56789
- 01234
-  567
-    8
+####   1
+####  234
+#### 56789
+#### 01234
+####  567
+####    8
 
- 0
- 10
- 010
- 1010
+#### 0
+#### 10
+#### 010
+#### 1010
 
 ```
 
