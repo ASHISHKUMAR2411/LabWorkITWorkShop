@@ -1,6 +1,6 @@
 # LabWorkITWorkShop
 
-##Python Worksheet 1
+## Python Worksheet 1
 
 **Que 1. Calculate simple interest**
 ```
@@ -399,14 +399,7 @@ test cases : only one test cases as given
 ```
 
 
-
-
-
-
-
-##Python Worksheet 2
-
-
+## Python Worksheet 2
 
 
 QUESTION 1. If cost price and selling price of an item is input through the keyboard, write a program to determine whether the seller has made profit or incurred loss. Also determine how much profit he made or loss he incurred.
