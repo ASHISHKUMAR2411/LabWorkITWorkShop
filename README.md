@@ -2561,3 +2561,651 @@ some test cases
 #  1 . longest_word("Ashish", "kumar", "IIITK")  ans : Ashish with length 6 and number of character : 6  
 # 2 . longest_word("AAAA", "AAAAA", "AAAAAA") ans : "AAAAAA" as it has length 6 and number of character : 6 
 ```
+
+
+
+##Python Worksheet 3
+
+
+Question 1 : Write a program to show bits of an integer
+
+
+Answer 1 : 
+```
+# This is the program to find the Binary form of the given number using bit manipulation 
+
+# this function is used to find the binary form of the given number
+def BinaryForm(n) : 
+    # initializing a list for storing the each bit 
+    list1 = []
+    # to find the last 16 bits of the number
+    for i in range(16):
+        # finding whether the ith bit is set or not 
+        if (n &(1<<i)) == 0 :
+            list1.append(0)
+        else :
+            list1.append(1)
+    # then reversing the list as it store all the bits in their reverse form 
+    list1.reverse()
+    print(list1)
+
+
+# driver code 
+# taking input 
+n = int(input("enter the number : "))
+# calling the function to find the binary form of the given number
+BinaryForm(n)
+```
+
+test cases
+```
+# 1. n = 2  output = 0000000000000010
+# 2. n = 12345 output = 0011000000111001
+# 3. n = 123456 output = 1110001001000000
+```
+
+
+
+
+Question 2.) The information about colors is to be stored in bits of a variable called color. The bit numbers 0 to 6, each represents 7 colors of a rainbow, i.e. bit 0 represents violet, 1 represents indigo, and so on as given below. Write a program that asks the user to enter a number and based on this number it reports which colors in the rainbow does the number represents.
+Red     Orange     Yellow      Green     Blue    Indigo	  Violet
+
+
+
+Answer 2: 
+```
+# in this we have to find the name of the colors from the color list which corresponds to its set bit of the given number in its binary from
+
+# the color list  
+colors = ["Red","Orange","Yellow","Green","Blue","Indigo","Violet"]
+
+# list to store the set and unset bits
+list1 = []
+
+# taking user input 
+n = int(input("enter the number"))
+
+# code to find the name of the color from the list
+# as it will search only till the length of the list in the list  
+for i in range(len(colors)):
+    # it is checking the ith bit is set or not
+    if (n &(1<<i)) == 0 :
+        list1.append(0)
+    else :
+        list1.append(1)
+
+# as list has to be reverse because the bit are append in the list so to make it use in proper order , reverse it .  
+list1.reverse()
+
+# display of the colors
+for i in range(len(colors)): 
+    if list1[i] : 
+        print(colors[i],end=' ')
+```
+test cases : 
+```
+# 1. n= 23 colors = Yellow Blue Indigo Violet
+# 2.  n = 127 colors = Red Orange Yellow Green Blue Indigo Violet
+# 3. n = 12345  colors = Orange Yellow Green Violet
+
+# the reason for larger number to show less colors because other set bits of the number is not in range of this seven .
+```
+
+
+
+Question 3.) In an inter-college competition, various sports and games are played between different colleges like cricket, basketball, football, hockey, lawn tennis, table tennis, carom and chess. The information regarding the games won by a particular college is stored in bit numbers 0, 1, 2, 3, 4, 5, 6, 7 respectively of an integer variable called game. The college that wins in 5 or more than 5 games is awarded the Champion of Champions trophy. If a number is entered through the keyboard, then write a program to find out whether the college won the Champion of the Champions trophy or not.
+
+
+Answer 3 : 
+```
+# in this we have to find the number of games a team won from the  list which corresponds to its set bit of the given number in its binary from and according to that champions of champions is to find for the given condition .           
+
+# list of games . 
+sports = ["Cricket","BasketBall","Football","Hockey","Lawn Tennis","Table Tennis","Carrom","Chess"]
+
+# list to store the set and unset bits
+list1 = []
+
+# taking user input
+n = int(input("enter the number"))
+
+for i in range(len(sports)):
+    if (n &(1<<i)) == 0 :
+        list1.append(0)
+    else :
+        list1.append(1)
+
+count = 0
+
+# counting the number of games won
+for i in range(8):
+    if list1[i]:
+        count+=1
+
+# checking the condition for champion fo champions 
+if count>=5 : 
+    print("Congratulation your team won Champions OF Champions Trophy")
+else : 
+    print("Sorry Better Luck Next Time for the Trophy ")
+
+```
+
+
+
+Question 4.)The time field in the directory entry is 2 bytes long. The distribution of different bits which account for hours, minutes, and seconds is given below. Write a program that would receive the two-byte time entry in form of a number and print the hours, minutes, and seconds.
+ H H H H H M M M M M M S S S S S
+
+
+Answer 4:
+```
+# find time in this format HHHHHMMMMMMSSSSS 
+# I am taking input as number and taking the 16 bit binary form and for first five finding hour and for the next six finding minutes and for the last 5 finding seconds.
+
+# taking input
+n = int(input("enter the number : "))
+
+# list to store the bits  
+list1 = []
+# for 16 bits 
+for i in range(16):
+    if (n &(1<<i)) == 0 :
+        list1.append(0)
+    else :
+        list1.append(1)
+list1.reverse()
+# finding hours , minutes and seconds 
+hr = 0
+mn = 0
+sec = 0
+# first five for hours and converting set bits in numbers 
+for i in range(4,0,-1):
+    if list1[i]:
+        hr+= 2**i
+
+#then 6 for minutes  
+for i in range(10,5,-1):
+    if list1[i]:
+        mn += 2**(i-5)
+
+# then last five for seconds 
+for i in range(15,11,-1):
+    if list1[i]:
+        sec+= 2**(i-11)
+print(f'the time is {hr} hours {mn} minutes {sec} seconds ')
+```
+
+test cases for
+```
+# 1. n = 12345  output : 12 hours 32 minutes 18 seconds
+# 2. n = 446 output : 0 hours 44 minutes 14 seconds 
+```
+
+
+
+Question 5.) Write a program to encrypt/decrypt using a bitwise operator.   (A,K = En    En,K = A)
+
+Answer 5 : 
+```
+# code for encrypt and decrypt the message using bitwise xor 
+
+num = int(input("enter the number you want to encrypt : "))
+
+# for using xor property 
+# taking a default number of characters
+
+# let bydefault as default number 
+bydefault = 9999
+
+print(f'the encrpt is {num^bydefault}')
+```
+test cases : 
+```
+# 1 . number = 123456  encrypt = 11607  for default = 9999 
+# 2 . number = 999999 encrypt = 1008944
+```
+
+
+
+
+Question 6) Write a program to check if Kth bit of N is set or not. A bit is called set if it is 1. Position of set bit '1' should be indexed starting with 0 from LSB side in the binary representation of the number.
+
+
+Answer 6 : 
+```
+# program to check the kth set bit 
+
+# driver code          
+n = int(input("enter the number : "))
+k = int(input("enter the bit you want check:"))
+# cheking by shifting 1 to k left bit and if there and is 1 then it set and not then not a set bit set
+if (n & 1<<k) : 
+    print("Yes it is set ")
+else:
+    print("no it is not set")
+```    
+
+test cases : 
+```
+# 1. n = 1234 , k = 5 , output = not set 
+# 2. n = 2 , k = 1 , output = set bit (as it will 10 as 0 from lsb given that means we can check for k = 0 )
+
+# 3 . n = 1 , k = 0 , output = set bit  
+```
+
+
+
+
+Question 7.) Write a program to Swap two numbers without using an intermediate variable using a bitwise operator. 
+Answer 7 : 
+```
+# swaping the number without using the third variable 
+a = int(input("enter the first number : "))
+b = int(input("enter the second number : "))
+# using xor property to avoid the third variable
+a = a^b;
+b = a^b;
+a = a^b;
+print(f'value of a is {a} and b is {b}')
+```
+test cases : 
+```
+# 1. a = 3 , b = 4 , output = value of a is 4 and b is 3
+# 2. a = 5 , b = 10 , output = value of a is 10 and b is 5
+
+```
+
+
+
+Question 8.) Write a program to swap the two nibbles in it and find the resulting number. For example, input number is 100 then Output: 70. 100 in binary is 01100100, two nibbles are (0110) and (0100) If we swap the two nibbles, we get 01000110 which is 70 in decimal. 
+
+Answer 8 : 
+```
+# swapping the two nibbles in the binary representation of a given number and then converting it into the new number 
+
+# function to swap the nibble 
+def nibbles(x):
+    # as bin is use to convert it into binary representation [2:] will slice it from 2 to the end as binary numbers are represented by '0b11001010' so this will get rid off the '0b' from the starting. 
+    bin_num=bin(x)[2:].zfill(8)
+    print("Enter binary number: ",end='')
+    print(bin_num)
+    # swapping the nibbles as it nibble contains four bits  
+    new_num=bin_num[4:8]+bin_num[0:4]
+    print("Swapped binary number: ", end='')
+    print(new_num)
+    # converting number to decimal representation
+    a=int(new_num,2)
+    print("New Decimal number formed by swapping: ", end='')
+    print(a)
+    
+# driver code  
+# taking input 
+n = int(input("enter the number : "))
+nibbles(n)
+```
+ test cases :
+```
+# 1. n = 10 
+# output : Enter binary number: 00001010
+# Swapped binary number: 10100000
+# New Decimal number formed by swapping: 160
+
+# 2. n = 12345
+# output : Enter binary number: 11000000111001
+# Swapped binary number: 00001100
+# New Decimal number formed by swapping: 12
+
+# 3. n =  99999999
+# output: Enter binary number: 101111101011110000011111111
+# Swapped binary number: 11101011
+# New Decimal number formed by swapping: 235
+```
+
+
+Question 9.) Write a program to find the total number of bits needed to be flipped to convert one integer to another.
+
+
+Answer 9 : 
+```
+# program to find the number of bit require to change while converting one number into another
+
+# function to count bits  
+def change(a,b):
+    count = 0
+    # as we know using xor can find the position where the bits are different as xor for two different bit is 1 so we can use that in here .
+    a = a^b;
+    # for ex if a = 1010 and b = 1101 the a^b is 0111 as last three bits are different so all will be one now we have to calculate the number of set bits in a^b
+    
+    # using while a is not zero 
+    # as a & (a-1) as now a^b = 0111 now if we and (0111 & 0110)= 0110  we get rid of one 1 from the binary representation and we increse count , similarly doing till a is 0
+    while a :
+        a = a & (a-1)
+        count+=1
+    return count
+
+# driver code 
+a = int(input("enter the first number : "))
+b = int(input("enter the number you want to convert : "))
+print(f'number of bits changes while changing  {a} to {b} is {change(a,b)}')
+```
+test cases :
+```
+# 1.  a = 10 , b = 13 , output = 3
+# 2. a = 100, b = 111 , output = 3
+# 3. a = 1000 , b = 1111 , output = 10
+```
+
+
+
+
+Question 10.)Write a program to Round up to the next highest power of 2
+Answer 10 : 
+```
+# program to find the next power to two   
+
+# function to find the next power
+def findNextPowerOf2(n):
+	n = n - 1
+	# as n can be itself power of two 
+
+	# doing till only one bit is left
+	while n & n - 1:
+		n = n & n - 1   	# unset rightmost bit 
+	# return next power of 2
+	return n << 1
+
+# driver code 
+n = int(input("enter the number whose next power of 2 is to be found : "))
+print(f'the next power of 2 for {n} is {findNextPowerOf2(n)}')
+```
+test cases 
+```
+# 1. n = 16 , output = 16 
+# 2. n = 20 , output = 32
+# 3. n = 123456789 , output = 134217728
+```
+
+
+
+
+Question 11.)Write a program to swap all odd bits with even bits. For example, if the given number is 23 (00010111), it should be converted to 43(00101011). Here, every even position bit is swapped with an adjacent bit on the right side(even position bits are highlighted in the binary representation of 23), and every odd position bit is swapped with an adjacent on the left side.
+
+
+Answer 11: 
+```
+# program to swap the odd bits with even bits
+
+# taking input
+num = int(input("enter the number : "))
+# taking even and odd number as zero
+even = 0
+odd = 0
+
+# as it will increment by two and swapping the odd and even bits of that particular pair as even number will 1 less than odd position if we take as 0 from LSB , with that we can find the even and odd bits and if we substract if from the number and again shift by one in alternate direction will give the number on addition of odd and even
+for i in range(1, 32, 2):
+    even = num & (1 << (i-1))
+    odd = num & (1 << i)
+    num = num-even-odd
+    even = even << 1
+    odd = odd >> 1
+    num = num+even+odd
+
+# printing the new number
+print(num)
+```
+test cases :
+```
+# 1. n = 12345 , output : 12342
+# 2. n = 99999 , output : 149871
+# 3. n = 98765, output :  148174
+```
+
+
+
+Question 12.)Write a program to find the 1's complement of the given number. The ones' complement of a binary number is defined as the value obtained by inverting all the bits in the binary representation of the number (swapping 0s for 1s and vice versa).
+
+
+Answer 12: 
+```
+# to find the one's complement of the we use tilder as it changes the bits
+import math
+
+n = int(input("enter the number : "))
+print(f'the number is {~n} ')
+
+# output :
+# 1. n = 10 , output = -11 (as the msb for 10 is 0 , so when it will be negative .)
+
+# one interesting fact is that we can see the one's complement of a number is just the negative of increment of the number
+# 2. n = 1111 , output : -1112
+# 3. n = 1112, output : -1113
+
+
+#ANOTHER WAY OF DOING THE QUESTION IS : 
+# if we just want to find the one's complement of the number in its binary form (not upto 32 bits only upto till its binary representation for ex 1010 will be 101) like that then
+
+# function to find the one's complement
+# Finding n as number of bits in the given integer and then finding the 2^(n-1) xor with original number will give the result
+
+def onesComplement(num):
+    number_of_bits = (int)(math.floor(math.log(num) / math.log(2))) + 1
+    return ((1 << number_of_bits) - 1) ^ num
+
+
+# Driver code
+num = int(input("enter the number : "))
+print(onesComplement(num))
+
+```
+test cases :
+```
+# 1. n = 10 (1010) , output = 5 (0101)
+# 2. n = 12345 , output = 4038
+# 3. n = 99999. output = 31072
+# 4. n = 2 , output = 1 
+```
+
+
+
+Question 13.)Write a program to count the set-bits and non-set-bits of an integer N.
+
+Answer 13:
+```
+# program to find the set bits and non set bits
+# finding set bits and suntracting from total bits
+
+
+# function to find the total number of bits
+def countBits(n):
+    count = 0
+    # shifting one by one until it is not zero
+    while (n):
+        count += 1
+        n >>= 1
+    return count
+
+# finding number of set bits
+
+
+def countSetBits(n):
+    count = 0
+    while (n):
+        n = n & (n-1)
+        count += 1
+    return count
+
+
+# drivers code
+n = int(input("enter the number : "))
+print(
+    f' number of set bits are {countSetBits(n)} and number of unset bits are {countBits(n)-countSetBits(n)}')
+```
+test case :
+```
+# 1. n = 101   output : set bit = 4 and non set bits = 3
+# 2. n = 12345 output : set bits = 6 and non set bits = 8
+# 3. n = 98789 output : set bits = 8 and non set bits = 9
+```
+
+
+
+Question 14.)Write a program to check if a number is a power of 8 or not.
+
+Answer 14:
+```
+# program to find whether the number is power of 8 or not
+
+# function to check for power of 8  as if it power of 8 then it set bits must be at position which are multiple of 3 if we take lsb at 0 and then 2  from the first one and only set bit should at there in the entire binary representation
+
+
+def Powerof8(n):
+    # starting from 0 lsb checking for 32 bits 
+    i = 0
+    l = 1
+    while (i <= 31):
+        l <<= i
+        if (l == n):
+            return True
+        i += 3
+        l = 1
+    return False
+
+# driver code 
+n = int(input("enter the number : "))
+print(f' the number {n} is {Powerof8(n)} about the power of 8 ')
+```
+test cases : 
+```
+# n = 1 , output = yes 
+# n = 8 , output = yes
+# n = 16, output = no
+# n = 64 , output = yes 
+```
+
+Question 15)Write a program to determine whether a number is odd or even using bitwise operators.
+
+Answer 15: 
+```
+
+# function to find whether the number is even or odd.
+def oddEven(n):
+    if(n & 1 == 0):
+        print(f'the number {n} is even')
+    else:
+        print(f'the number {n} is odd ')
+
+
+# driver code
+n = int(input("enter the number :"))
+oddEven(n)
+```
+test cases :
+```
+# n = 1 , output = odd
+# n = 2 , output = even
+# n = 10 , output = even
+# n = 1111 , output = odd
+```
+
+Question 16.)The Bit Game: Two players, Player 1 and Player 2, are given an integer N to play a game. The rules of the game are as follows :
+a.)In one turn, a player can swap any 2 bits of N in its binary representation to make a new N.
+b.)In one turn, a player has to make a number strictly less than N.
+c.)Player 1 always takes the first turn.
+d.)If a player cannot make a move, he loses.
+
+Answer 16:
+```
+# program to find which player , as two player get chance to swap the number and find the smaller number than the previous if player cannot then it will lose
+
+# function to find which player wins
+# using the basic idea of dividing the number by two and will give the smaller number and it will change two bits following the condition of the game , and using the xor property on k and x , and incrementing the x when it is divisible by two will give the condition for k greater than 1 .
+def bitGame(n):
+    x = 0
+    k = 0
+    while n>0:
+        if n%2 and x>0 :
+            k = k^x
+        if n%2 == 0:
+            x+=1 
+        n = n/2
+    if k>0 :
+        return 1
+    else:
+        return 2
+n = int(input("enter the number :  "))
+print(f'player {bitGame(n)} wins')
+```
+test cases : 
+```
+# 1. n = 8 , output :  player 1 wins
+# 2. n = 1111 , output : player 2 wins
+# 3. n = 9999, output : player 2 wins
+```
+
+
+Question 17.)Given two integers numbers N and K, Write a program to find f(f(..........f(N))) K times, where f(x) = x XOR (x%10). N = 66 and K= 3 So output will be 74.
+
+Answer 17 : 
+```
+# program to find the functional value of f(....f(k)) where f(k) = x^(x%10)
+# as if x%10 == 0 and xor of any number with zero gives the number itself otherwise finding it till k times
+
+# function
+def fun(n, k):
+    for i in range(k):
+        if(n % 10 == 0):
+            return n
+        n = n ^ (n % 10)
+    return n
+
+
+# driver code
+n = int(input("enter the number : "))
+k = int(input("enter the value of k : "))
+print(f'the value of the operation is {fun(n,k)}')
+```
+ test cases :
+```
+# 1. n = 110 , k = 10 , output = 110 ,
+# 2. n = 66 , k = 3 , output = 74
+# 3. n = 9999 , k = 9999 , output = 9990 ,
+```
+
+
+
+Question 18.)Write a program to check if the binary representation of a number is palindrome or not.
+
+Answer 18.)
+```
+#program to check whether binary representation of a number is palindrome
+
+
+import sys
+# function to check whether the kth bit is set or not 
+def isKthBitSet(x, k):
+	if ((x & (1 << (k - 1))) !=0):
+		return True
+	else:
+		return False
+
+#function  to check the palindrome
+# checking using two pointer technique as moving from left and right and checking whether the corresponding bit are same or not , if yes then they move closer towards each other otherwise not palindrome 
+
+def isPalindrome(num):
+	left_bit = 1
+	right_bit = 2 * 8 
+	while (left_bit < right_bit):
+		if (isKthBitSet(num, left_bit) != isKthBitSet(num, right_bit)):
+			return False
+		left_bit += 1
+		right_bit -= 1
+	return True
+# driver code 
+n = int(input("enter the number : "))
+print(f'the number {n} is {isPalindrome(n)} about the plaidrom of its bits representation ')
+
+```
+test cases 
+```
+# 1. n = 1002 , output : not palindrome
+# 2. n = 0 , output : yes palindrome
+```
