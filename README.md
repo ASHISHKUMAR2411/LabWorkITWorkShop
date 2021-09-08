@@ -3209,3 +3209,642 @@ test cases
 # 1. n = 1002 , output : not palindrome
 # 2. n = 0 , output : yes palindrome
 ```
+
+ ## Python WorkSheet 4 
+Question 1 : Create two new classes for each real-world object that you observed. Use docstring to document the class well. Use __str__ to print a meaningful object description.
+
+
+Ans 1: 
+```
+class HumanBeing:
+    ''' Here The Class HumanBeing Asks For the Data Like Name and Age and return the format of their data.
+    It has __init__ function which act initialise data to the class object and __str__ format about the 
+    data in what way it is being stored '''
+    
+    # __init__ method to initialise the variables name and age . and we know that we can use anything in
+    # place of self so i am using WhatIsYour
+    def __init__(WhatIsYour,name,age):
+        WhatIsYour.name = name
+        WhatIsYour.age = age
+    
+    # here __str__ method gives the format of the variables and their description  
+    def __str__(Your):
+        return f'Your Name : {Your.name} and Your Age : {Your.age}'
+    
+    # added one method AddTitle to add title to the name of the Person
+    def AddTitle(YourTitle,title):
+        YourTitle.name = YourTitle.name+" "+title
+
+# driver code 
+# main method 
+def main():
+    Person1 = HumanBeing("Ashish",19)
+    Person1.AddTitle("Kumar")
+    print(f'{HumanBeing.__doc__}')
+    print(f'{Person1.__str__()}')
+    print(f'{Person1}')
+
+#main() is called    
+if __name__=="__main__" :
+    main()
+
+
+# output : 
+#    
+#  Here The Class HumanBeing Asks For the Data Like Name and Age and return the format of their data.
+#     It has __init__ function which act initialise data to the class object and __str__ format about the 
+#     data in what way it is being stored 
+# Your Name : Ashish Kumar and Your Age : 19
+# Your Name : Ashish Kumar and Your Age : 19
+```
+
+
+Question 2: 
+Create a python class that illustrates a famous quote by George Bernard Shaw, using objects to represent people. “If you have an apple and I have an apple and we exchange these apples then you and I will still each have one apple. But if you have an idea and I have an idea and we exchange these ideas, then each of us will have two ideas.” (i.e. class Person with attributes apples, ideas, and methods exchange_apples(), exchange_ideas().) Use docstring to document the class well. Use __str__ to print a meaningful object description.
+
+
+Ans : 
+```
+class Quotes:
+    ''' This Class illustrate a very famous quote by George Bernard Shaw '''
+    ''' initializing the number of apples and ideas each person has '''
+    
+    # init function to initialise variables 
+    def __init__(self, apples,ideas):
+        self.apples = apples
+        self.ideas = ideas
+    
+    ''' when we exchange apples''' 
+    def exchange_apples(self):
+        print(f' if we exchange our {self.apples} apples with each other then we both will still have {self.apples} apples ')
+    
+    ''' when ideas are exchanged '''
+    def exchange_ideas(self):
+        print(f'if we both have {self.ideas} different idea then after sharing we are going to have {2*self.ideas} ideas ')
+    
+    ''' format of the class '''
+    def __str__(self):
+        return f'What we learn is exchanging {self.ideas} ideas will really help in growth but exchanging {self.apples} will not change the situation '
+
+#main() is called
+def main() :
+    Quotes1 = Quotes(5,5)
+    print(Quotes.__doc__)
+    Quotes1.exchange_apples()
+    Quotes1.exchange_ideas()
+    print(Quotes1)
+    
+if __name__=="__main__":
+    main()
+    
+    
+#  output : 
+
+# This Class illustrate a very famous quote by George Bernard Shaw 
+# if we exchange our 5 apples with each other then we both will still have 5 apples 
+# if we both have 5 different idea then after sharing we are going to have 10 ideas 
+# What we learn is exchanging 5 ideas will really help in growth but exchanging 5 will not change the situation
+```
+
+
+Question 3 :
+Create a Time class and initialize it with hours and minutes.
+1. Make a method addTime which should take two time object and add them. E.g.- (2 hour and 50 min)+(1 hr and 20 min) is (4 hr and 10 min)
+2. Make a method displayTime which should print the time.
+3. Make a method DisplayMinute which should display the total minutes in the Time. E.g.- (1 hr 2 min) should display 62 minute.
+
+
+Ans : 
+```
+
+class Time :
+    ''' this class is for adding two class object's time and presenting the time in minutes only '''
+    
+    # init function is for initialise the hour and minutes 
+    def __init__(self,hrs,mins):
+        self.hrs = hrs
+        self.mins = mins
+    
+    # add time for two objects
+    def addTime(self,ob1,ob2):
+        self.mins = (ob1.mins + ob2.mins)%60
+        self.hrs = (ob2.hrs+ob1.hrs) + (ob1.mins+ob2.mins)//60
+    
+    # display the time 
+    def displayTime(self):
+        print(f'time is {self.hrs} hours and {self.mins} minutes')
+    
+    # display in minutes 
+    def DisplayMinutes(self):
+        print(f'time in minutes is : {self.hrs*60 + self.mins} minutes')
+        
+    def __str__(self):
+        return f'time is {self.hrs} hours and {self.mins} minutes '
+
+# driver code 
+def main():
+    hours1 = int(input("enter the hours : "))
+    minutes1 = int(input("enter the minutes : "))
+    time1 = Time(hours1,minutes1)
+    time1.displayTime()
+    time1.DisplayMinutes()
+    hours2 = int(input("enter the hours : "))
+    minutes2 = int(input("enter the minutes : "))
+    time2 = Time(hours2,minutes2)
+    time2.displayTime()
+    time2.DisplayMinutes()
+    print(f'Now adding the {time1} and {time2}')
+    time1.addTime(time1,time2)
+    time1.displayTime()
+    time1.DisplayMinutes()
+
+if __name__ == "__main__":
+    main()
+    
+
+# output : 
+# enter the hours: 12
+# enter the minutes: 34
+# time is 12 hours and 34 minutes
+# time in minutes is : 754 minutes
+# enter the hours:  45
+# enter the minutes: 6
+# time is 45 hours and 6 minutes
+# time in minutes is : 2706 minutes
+
+# Now adding the time is 12 hours and 34 minutes and time is 45 hours and 6 minutes
+# time is 57 hours and 40 minutes
+# time in minutes is : 3460 minutes
+```
+
+
+
+Question 4: 
+The City class has the following attributes: name, country (where the city is located), elevation (measured in meters), and population (approximate, according to recent statistics). Write max_elevation_city function to return the name of the city and its country (separated by a comma), when comparing the 3 defined instances for a specified minimal population. Use docstring to document the class well. Use __str__ to print a meaningful object description. 
+
+Ans : 
+```
+class City : 
+    ''' this City class has different attribute for a city like city Name, county of the city , elevation 
+    from sea level and the population of that city  and we are using a max_elevation_city function which takes a minimum_population by user checks whether that kind of city is available 
+    with minimum that much populations and have maximum elevation'''
+    
+    # init function 
+    def __init__(self,name,country,elevation,population):
+        self.name = name
+        self.country = country
+        self.elevation = elevation
+        self.population = population
+    
+    # maximim elevation function checks for maximum elevation with at least minimum population in it  
+    def max_elevation_city(self,min_population, city1 , city2 , city3 ):
+        return_city = city1
+        if city1.population >= min_population:
+            return_city = city1
+        if city2.population >= min_population and city2.elevation > return_city.elevation:
+            return_city = city2
+        if city3.population >= min_population and city3.elevation > return_city.elevation:
+            return_city = city3
+        if return_city.name:
+            return f"{return_city.name}, {return_city.country}" 
+        else:
+            return ""
+        
+    def __str__(self):
+        return f'{self.name} city of {self.country} is elevated {self.elevation}m from sea level and has population of {self.population} '
+
+# driver code 
+def main():
+    cities = ["Delhi","New York","London"]
+    country = ["India","USA","England"]
+    elevations = [216,10,11]
+    populations = [31181, 88793, 94252]
+    print(f'{City.__doc__}')
+    city = []
+    for i in range(3):
+        city.append(City(cities[i],country[i],elevations[i],populations[i]))
+    
+    for i in range(len(city)):
+        print(f'{city[i]}')
+    
+    for i in range(len(city)):
+        min_pop = int(input("enter the minimum population to check which city from which country suits that population : "))
+        print(f'{city[i].max_elevation_city(min_pop,city[2],city[1],city[0])}')
+    
+if __name__ == "__main__":
+    main()
+    
+
+# output : 
+#    
+# this City class has different attribute for a city like city Name, county of the city , elevation
+ 
+# from sea level and the population of that city  and we are using a max_elevation_city function which takes a minimum_population by user checks whether that kind of city is available 
+
+#  with minimum that much populations and have maximum elevation
+
+# Delhi city of India is elevated 216m from sea level and has population of 31181 
+# New York city of USA is elevated 10m from sea level and has population of 88793 
+# London city of England is elevated 11m from sea level and has population of 94252 
+
+
+# enter the minimum population to check which city from which country suits that population : 
+# 100000
+# London, England
+
+
+# enter the minimum population to check which city from which country suits that population : 
+# 17000
+# Delhi, India
+
+
+# enter the minimum population to check which city from which country suits that population : 
+# 35689
+# London, England
+```
+
+
+
+Question 5: 
+We have two pieces of furniture: a brown wood table and a red leather couch. Create each Furniture class with attributes color, material instance, so that the describe_furniture function can format a sentence that describes these pieces as follows: "This piece of furniture is made of {color} {material}". Use docstring to document the class well. Use __str__ to print a meaningful object description. 
+
+
+Ans : 
+```
+class Furniture:
+    ''' in this class we initialise the Furniture with the attribute like color and material and then print the format '''
+    def __init__(self,color,material):
+        self.color = color
+        self.material = material
+    
+    # method for description of furniture
+    def describe_furniture(self):
+        print(f'the furniture is {self.color} in color and {self.material} material')
+    
+    def __str__(self):
+        print(f'the furniture has attribute color: {self.color} and material : {self.material}')
+
+
+# driver code
+def main():
+    Table = Furniture("brown","wood")
+    Sofa = Furniture("Black","Fabric ")
+    print(f'{Furniture.__doc__}')
+    Table.describe_furniture()
+    Sofa.describe_furniture()
+
+if __name__ == "__main__":
+    main()
+    
+    
+# output : 
+# In this class we initialise the Furniture with the attribute like color and material and then print the format
+# the furniture is brown in color and wood material
+# the furniture is Black in color and Fabric  material
+
+```
+
+Question 6 : 
+Write a Person class that has an attribute “name”, which gets set when constructing the object. The class also has the greeting() method is called, the greeting states the assigned name. Use docstring to document the class well. Use __str__ to print a meaningful object description.
+
+Ans : 
+```
+class Person:
+    ''' the class Person descibes the assigned named for the person  '''
+    def __init__(self,name):
+        self.name = name
+    
+    # Greeting method for assigned name 
+    def Greeting(self):
+        print(f'the assigned name is : {self.name}')
+    
+    def __str__(self):
+        return f'the person was assigned the name {self.name}'
+
+# driver code 
+def main():
+    name = input("enter the name of the person you want to assign : ")
+    person1 = Person(name)
+    print(f'{Person.__doc__}')
+    person1.Greeting()
+    
+if __name__ == "__main__":
+    main()
+
+
+# output : 
+ 
+# enter the name of the person you want to assign: Ashish
+# the class Person describes the assigned named for the person
+# the assigned name is : Ashish
+
+```
+
+Question 7: 
+Create a Die class with one integer instance variable called sideUp. Give it a constructor and a getSideUp( ) method that returns the value of sideUp and a void roll( ) method that changes sideUp to a random value from 1 to 6. Then creates two Die objects, rolls them, and prints the sum of the two sides up. Use docstring to document the class well. Use __str__ to print a meaningful object description. 
+
+
+Ans : 
+```
+import random
+class Dice:
+    ''' the class is to add the random values to two dices and it initialised at the starting'''
+    def __init__(self,SideUp):
+        self.SideUp = SideUp
+    
+    # method to find the number of the dice 
+    def getSideUp(self):
+        return self.SideUp
+    
+    # method for giving random number between 1 to 6 
+    def roll(self):
+        self.SideUp = random.randint(1,6)
+    
+    def __str__(self):
+        return f'the value on the top of the dice is {self.SideUp}'
+
+# driver code 
+def main():
+    dice1 = Dice(1)
+    dice2 = Dice(2)
+    print(f'{Dice.__doc__}')
+    print(f'{dice1.getSideUp()} value on dice1')
+    dice2.getSideUp()
+    print(f'{dice2.getSideUp()} value on dice2')
+    print(f'now adding the random of the dice : ' )
+    dice1.roll()
+    print(f'{dice1.getSideUp()} value assigned to dice1 on random')
+    dice2.roll()
+    print(f'{dice2.getSideUp()} value assigned to dice2 on random')
+    print(f'the sum is {dice1.getSideUp()+dice2.getSideUp()} ')
+
+if __name__ == "__main__":
+    main()
+    
+# Output : 
+
+
+#  the class is to add the random values to two dices and it initialise at the starting
+# 1 value on dice1
+# 2 value on dice2
+# now adding the random of the dice:
+# 5 value assigned to dice1 on random
+# 6 value assigned to dice2 on random
+# the sum is 11
+
+```
+
+Question 8:
+Create a Card class that represents a playing card. It should have an int instance variable named rank and a char variable named suit. Give it a constructor with two parameters for initializing the two instance variables and give it a getSuit( ) method and a getRank( ) method that return the values of the two instance variables. Then creates five Cards that make up a full house (that is, three of the cards have the same rank and the other two cards have the same rank) and prints out the ranks and suits of the five Cards using the getSuit( ) and getRank( ) methods. Use docstring to document the class well. Use __str__ to print a meaningful object description. 
+
+
+Ans : 
+```
+class Card:
+    ''' This Class is used to Show the rank And suit of any given card using two method getSuit and getRank'''
+    def __init__(self,rank,suit):
+        self.rank = rank
+        self.suit = suit
+    
+    # method to getSuit 
+    def getSuit(self):
+        return self.suit
+    
+    # method to getRank
+    def getRank(self):
+        return self.rank
+    
+    def __str__(self):
+        return f'the rank of the card is : {self.rank} and suit is {self.suit}'
+
+
+# driver code 
+def main():
+    print(f'{Card.__doc__}')
+    card1 = Card(3, '♥')
+    print(f'the rank of the card is {card1.getRank()} and suit is {card1.getSuit()}')
+    card2 = Card(3, '♠')
+    print(f'the rank of the card is {card2.getRank()} and suit is {card2.getSuit()}')
+    card3 = Card(3, '♦')
+    print(f'the rank of the card is {card3.getRank()} and suit is {card3.getSuit()}')
+    card4 = Card(2, '♦')
+    print(f'the rank of the card is {card4.getRank()} and suit is {card4.getSuit()}')
+    card5 = Card(2, '♣')
+    print(f'the rank of the card is {card5.getRank()} and suit is {card5.getSuit()}')
+    
+if __name__ == "__main__":
+    main()
+    
+
+# output : 
+#  This Class is used to Show the rank And suit of any given card using two method getSuit and getRank
+# the rank of the card is 3 and suit is ♥
+# the rank of the card is 3 and suit is ♠
+# the rank of the card is 3 and suit is ♦
+# the rank of the card is 2 and suit is ♦
+# the rank of the card is 2 and suit is ♣
+ ```   
+    
+
+Question 9:
+Create a Swapper class with two integer instance variables x and y and a constructor with two parameters that initialize the two variables. Also include three methods: A getX( ) method that returns x, a getY( ) method that returns y, and a void swap( ) method that swaps the values of x and y. Write instructions to tests all the methods. Use docstring to document the class well. Use __str__ to print a meaningful object description. 
+
+Ans : 
+```
+class Swapper:
+    ''' here this class is used to swap the value of x and y and method to fetch value of x and y '''
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+    
+    # method to get the value of x 
+    def getX(self):
+        return self.x 
+    
+    # method to get the value of y 
+    def getY(self):
+        return self.y
+    
+    # method to swap values 
+    def swap(self):
+        temp = self.x 
+        self.x = self.y
+        self.y = temp 
+    
+    def __str__(self):
+        return f'the value of x : {self.x} and y : {self.y}'
+def main():
+    point1 = Swapper(1,2)
+    print(f'{Swapper.__doc__}')
+    print(f'the x value is : {point1.getX()} and y is : {point1.getY()}')
+    point1.swap()
+    print(f'the x value is : {point1.getX()} and y is : {point1.getY()}')
+    
+if __name__ == "__main__":
+    main()
+
+# output : 
+#  here this class is used to swap the value of x and y and method to fetch value of x and y
+# the x value is: 1 and y is : 2
+# the x value is: 2 and y is : 1
+```
+
+Question 10 : 
+Create a USMoney class with two integer instance variables dollars and cents. Add a constructor with two parameters for initializing a USMoney object. The constructor should check that the cents value is between 0 and 99 and, if not, transfer some of the cents to the dollars variable to make it between 0 and 99. Add a plus method to the class that takes a USMoney object as its parameter. It creates and returns a new USMoney object representing the sum of the object whose plus( ) method is being invoked and the parameter. It does not modify the values of the two existing objects. It should also ensure that the value of the cents instance variable of the new object is between 0 and 99. For example, if x is a USMoney object with 5 dollars and 80 cents, and if y is a USMoney object with 1 dollar and 90 cents, then x.plus(y) will return a new USMoney object with 7 dollars and 70 cents. Also, write instruction that tests the USMoney class. Use docstring to document the class well. Use __str__ to print a meaningful object description.
+
+
+Ans : 
+
+```
+class USMoney:
+    ''' the USMoney is used to initialise dollar and cent and it has add function where it add the two money i.e two object ''' 
+    def __init__(self,dollar,cent):
+        if cent<0:
+            self.cent += 100
+            self.dollar -= 1 
+        elif cent>99 :
+            self.cent -= 100
+            self.dollar += 1 
+        else :
+            self.cent = cent
+            self.dollar = dollar
+        
+        
+    # method to add the  money of two object and store it in third variable 
+    def plus(self,money):
+        m = USMoney(0,0)
+        m.cent = self.cent+money.cent
+        m.dollar = self.dollar + money.dollar
+        if(m.cent>99):
+            m.cent -= 100
+            m.dollar += 1 
+        return m
+    def __str__(self):
+        return f'we have {self.dollar} dollar and {self.cent}'
+
+# driver code 
+def main():
+    print(f'{USMoney.__doc__}')
+    money1 = USMoney(4,59)
+    print(f'{money1.__str__()}')
+    money2 = USMoney(5,89)
+    print(f'{money2.__str__()}')
+    money = USMoney(0,0)
+    money = money2.plus(money1)
+    print(f'{money.__str__()}')
+
+if __name__ == '__main__':
+    main()
+
+# output : 
+#        
+#  the USMoney is used to initialise dollar and cent and it has add function where it add the two money i.e two object 
+# we have 4 dollar and 59
+# we have 5 dollar and 89
+# we have 10 dollar and 48
+```
+
+--------------------------------------------------------------------------------------------------------------------------
+
+Question 11: 
+Create a Date class with three integer instance variables named day, month, year. It has a constructor with three parameters for initializing the instance variables, and it has one method named daysSinceJan1( ). It computes and returns the number of days since January 1 of the same year, including January 1 and the day in the Date object. For example, if day is a Date object with day = 1, month = 3, and year = 2000, then the call day.daysSinceJan1( ) should return 61 since there are 61 days between the dates of January 1, 2000, and March 1, 2000, including January 1 and March 1. Include instructions that tests the Date class. Don’t forget leap years. Use docstring to document the class well. Use __str__ to print a meaningful object description. 
+
+
+Ans : 
+```
+class Date :
+    ''' the Date class is used to initialise the date and along with that it also find the number of days 
+    from the very first day of the year '''
+    def __init__(self,day,month,year):
+        self.day = day
+        self.month = month
+        self.year = year
+    
+    # method to count the number of days between the given date and first day of year(inclusive)
+    def daysSinceJan1(self):
+        leap = 0
+        if (self.year%400 == 0):
+            leap = 1
+        elif self.year%4 == 0 : 
+            if self.year%100 != 0: 
+                leap = 1
+        noOfDays = 0 
+        m1 = self.month-1
+        while m1 >= 1:
+            if  m1 % 2 == 1:
+                if m1<=7:
+                    noOfDays += 31
+                else : 
+                    noOfDays += 30
+            elif m1 == 2:
+                if leap :
+                    noOfDays += 29
+                else :
+                    noOfDays += 28 
+            elif m1%2 == 0:
+                if m1>=8:
+                    noOfDays += 31
+                else : 
+                    noOfDays += 30
+            m1 -= 1
+        noOfDays += self.day
+        return noOfDays
+    
+    def __str__(self):
+        return f'the date is {self.day} day of month {self.month} and year {self.year} '
+
+# driver code 
+def main():
+    date1 = Date(1,3,2000)
+    print(f'{Date.__doc__}')
+    print(f'{date1.__str__()}')
+    print(f'the number of days are {date1.daysSinceJan1()}')
+    
+if __name__ == '__main__':
+    main()
+        
+        
+# output: 
+ 
+#  the Date class is used to initialise the date and along with that it also find the number of days 
+#  from the very first day of the year 
+# the date is 1 day of month 3 and year 2000 
+# the number of days are 61
+
+```
+
+Question 12 :
+Create a Person class with instance variables for the person’s name and birth date. Then create a subclass CollegeGraduate with instance variables for the student’s GPA and year of graduation. Don’t forget to include appropriate constructors for your classes. Include instructions that tests the class. Use docstring to document the class well. Use __str__ to print a meaningful object description. 
+
+Ans : 
+```
+class Person() :
+    ''' this class is about the information of the student name and date of birth '''
+    def __init__(self, name , dob):
+        self.name = name
+        self.dob = dob
+  
+# this is the subclass of class "Person"
+class CollegeGraduate(Person):
+    ''' This is a subclass for person where the student is in which year of Graduation and his/her GPA'''
+    def __init__(self, name , dob , gpa , year):
+        super().__init__(name,dob)
+        self.gpa = gpa
+        self.year = year
+    def __str__(self):
+        return f'{self.name} with Date Of Birth {self.dob} is in {self.year} in Graduation with GPA of : {self.gpa}'
+def main():
+    print(f'{Person.__doc__}')
+    print(f'{CollegeGraduate.__doc__}')
+    student = CollegeGraduate("Ashish Kumar" , "24/11/2001 ", 2 , 8.0 )
+    print(f'{student.__str__()}')
+if __name__ == '__main__':
+    main()
+
+# output : 
+
+#    
+#  this class is about the information of the student name and date of birth 
+#  This is a subclass for person where the student is in which year of Graduation and his/her GPA
+# Ashish Kumar with Date Of Birth 24/11/2001  is in 2 year in Graduation with GPA of : 8.0
+```
